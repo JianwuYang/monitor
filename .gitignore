@@ -9,3 +9,9 @@ build
 bin
 
 .idea
+
+.project
+
+.settings
+
+.classpath
