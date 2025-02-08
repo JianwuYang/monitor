@@ -36,7 +36,7 @@ java {
 
 application {
     // Define the main class for the application.
-    mainClass = 'comt.pintechs.qms.monitor.Application'
+    mainClass = 'top.yangjianwu.monitor.Application'
 }
 
 tasks.named('test') {
