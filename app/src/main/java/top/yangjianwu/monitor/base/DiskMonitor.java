@@ -13,7 +13,7 @@ import top.yangjianwu.monitor.factory.BaseMonitorScheduleFactory;
 public class DiskMonitor implements Runnable {
 
   private static final Gauge disk = Gauge.builder()
-      .name("pin_disk_useage")
+      .name("my_disk_useage")
       .labelNames("dir")
       .register();
 

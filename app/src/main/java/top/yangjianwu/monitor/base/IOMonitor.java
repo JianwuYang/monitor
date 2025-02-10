@@ -32,7 +32,7 @@ public class IOMonitor implements Runnable {
   private static final Map<Integer, String> indexMap = new HashMap<>();
 
   private static final Gauge io = Gauge.builder()
-      .name("pin_io_stats")
+      .name("my_io_stats")
       .labelNames("tag", "device")
       .register();
 

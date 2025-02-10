@@ -14,7 +14,7 @@ public class CPUMonitor implements Runnable {
             .getOperatingSystemMXBean();
 
     private static final Gauge cpu = Gauge.builder()
-            .name("pin_cpu_useage")
+            .name("my_cpu_useage")
             .register();
 
     public static void init() {

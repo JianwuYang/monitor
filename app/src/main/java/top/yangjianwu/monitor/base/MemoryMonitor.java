@@ -14,7 +14,7 @@ public class MemoryMonitor implements Runnable {
             .getOperatingSystemMXBean();
 
     private static final Gauge memory = Gauge.builder()
-            .name("pin_memory_useage")
+            .name("my_memory_useage")
             .register();
 
     public static void init() {
