@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVRecord;
+
 import io.prometheus.metrics.core.metrics.Gauge;
 import top.yangjianwu.monitor.factory.BaseMonitorScheduleFactory;
 
@@ -45,7 +49,15 @@ public class ContainerOverviewMonitor implements Runnable {
             int all = 0;
             int running = 0;
 
+
             while ((line = reader.readLine()) != null) {
+                CSVParser parser = CSVParser.parse(line, CSVFormat.DEFAULT);
+                for (CSVRecord record : parser) {
+                    for (String field: record) {
+                        System.out.print(field + ",");
+                    }
+                }
+                System.out.println();
                 String[] tokens = line.split("\\s+");
                 for (int i = 0; i < tokens.length; i++) {
                     if (i == 4) {
