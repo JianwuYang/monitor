@@ -51,12 +51,17 @@ public class ContainerOverviewMonitor implements Runnable {
 
 
             while ((line = reader.readLine()) != null) {
-                CSVParser parser = CSVParser.parse(line, CSVFormat.DEFAULT);
-                for (CSVRecord record : parser) {
-                    for (String field: record) {
-                        System.out.print(field + ",");
-                    }
+
+                String[] temp = line.split("\\t+");
+                for(String str: temp) {
+                    System.out.print(str + ",");
                 }
+                // CSVParser parser = CSVParser.parse(line, CSVFormat.EXCEL);
+                // for (CSVRecord record : parser) {
+                //     for (String field: record) {
+                //         System.out.print(field + ",");
+                //     }
+                // }
                 System.out.println();
                 String[] tokens = line.split("\\s+");
                 for (int i = 0; i < tokens.length; i++) {
