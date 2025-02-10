@@ -27,7 +27,6 @@ public class ContainerOverviewMonitor implements Runnable {
 
     private static final Gauge overview = Gauge.builder()
             .name("my_container_overview")
-            .labelNames("all", "running")
             .register();
 
     @Override
@@ -58,8 +57,7 @@ public class ContainerOverviewMonitor implements Runnable {
                 }
             }
 
-            overview.labelValues("all").set(all);
-            overview.labelValues("running").set(running);
+            overview.set(all);
         } catch (IOException e) {
             e.printStackTrace();
         }
