@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import top.yangjianwu.monitor.base.CPUMonitor;
 import top.yangjianwu.monitor.base.DiskMonitor;
+import top.yangjianwu.monitor.base.IOMonitor;
 import top.yangjianwu.monitor.base.MemoryMonitor;
 
 import io.prometheus.metrics.exporter.httpserver.HTTPServer;
@@ -25,5 +26,6 @@ public class Application {
     CPUMonitor.init();
     MemoryMonitor.init();
     DiskMonitor.init();
+    IOMonitor.init();
   }
 }

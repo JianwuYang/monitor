@@ -14,10 +14,11 @@ public class DiskMonitor implements Runnable {
 
   private static final Gauge disk = Gauge.builder()
       .name("pin_disk_useage")
+      .labelNames("dir")
       .register();
 
   public static void init() {
-    BaseMonitorScheduleFactory.INSTANCE.scheduleAtFixedRate(new DiskMonitor(), 0, 5, TimeUnit.SECONDS);
+    BaseMonitorScheduleFactory.INSTANCE.scheduleAtFixedRate(new DiskMonitor(), 0, 1, TimeUnit.HOURS);
   }
 
   @Override
@@ -31,9 +32,6 @@ public class DiskMonitor implements Runnable {
         long usableSpace = store.getUsableSpace();
 
         double percent = usableSpace * 1.0 / totalSpace;
-
-        System.out.println(totalSpace + "," + usableSpace + "," + percent);
-        System.out.println(root.toString());
 
         disk.labelValues(root.toString()).set(1 - percent);
 
