@@ -51,7 +51,7 @@ public class ContainerOverviewMonitor implements Runnable {
                     if (i == 4) {
                         all++;
                         String token = tokens[i];
-                        if (token.contains("UP")) {
+                        if (token.contains("Up")) {
                             running++;
                         }
                     }
