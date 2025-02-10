@@ -52,7 +52,7 @@ public class ContainerOverviewMonitor implements Runnable {
 
             while ((line = reader.readLine()) != null) {
 
-                String[] temp = line.split("\\t+");
+                String[] temp = line.split("(?<=\\s{2,})\\s");
                 for(String str: temp) {
                     System.out.print(str + ",");
                 }
